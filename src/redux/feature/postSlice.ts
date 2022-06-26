@@ -2,12 +2,12 @@ import { createSlice } from "@reduxjs/toolkit"
 import { Post } from "../../model/model"
 
 export interface PostState {
-    allPost:Post[],
+    posts:Post[],
     isLoading:boolean,
     errorMessage:string
 }
 const initialState:PostState={
-    allPost:[],
+    posts:[],
     isLoading:true,
     errorMessage:''
 }
@@ -17,7 +17,8 @@ export const postSlice = createSlice({
     initialState,
     reducers:{
         LOAD_POST:(state,action)=>{
-            state.allPost = action.payload 
+            state.posts = action.payload
+            state.isLoading=false 
         }
     }
 
